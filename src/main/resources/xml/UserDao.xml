@@ -1,0 +1,63 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sundaydevblog.springmybatistest.dao.UserDao">
+
+	<resultMap id="UserResultMap" type="UserDto">
+		<id property="id" column="Id"></id>
+		<result property="name" column="Name"></result>
+		<result property="email" column="Email"></result>
+		<result property="mobile" column="Mobile"></result>
+	</resultMap>
+
+	<select id="getUsers" resultMap="UserResultMap">
+		SELECT
+			u.Id,
+			u.Name,
+			u.Email,
+			u.Mobile
+		FROM
+			T_USER as u
+	</select>
+
+	<select id="getUserById" resultMap="UserResultMap">
+		SELECT
+			u.Id,
+			u.Name,
+			u.Email,
+			u.Mobile
+		FROM
+			T_USER as u
+		WHERE
+			u.Id = #{id}
+	</select>
+
+	<insert id="create" parameterType="UserDto" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+			T_USER (Name, Email, Mobile)
+		VALUES
+			(#{name}, #{email}, #{mobile});
+	</insert>
+
+	<update id="update" parameterType="UserDto">
+		UPDATE
+		T_USER
+		<set>
+			<if test="name != null">Name = #{name},</if>
+			<if test="email != null">Email = #{email},</if>
+			<if test="mobile != null">Mobile = #{mobile},</if>
+		</set>
+		WHERE
+		Id = #{id}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM
+			T_USER
+		WHERE
+			Id = #{id}
+	</delete>
+
+</mapper>
