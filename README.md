@@ -2,8 +2,7 @@
 
 ![MyBatis + Spring Boot banner](https://github.com/Pio-Trek/mybatis-xml-spring-boot/blob/master/art/banner.png)
 
-Sample project showing the integration of the MyBatis (Java persistence framework) with Spring Boot using XML mapper file.<br />
-Unlike ORM frameworks, MyBatis does not map Java objects to database tables but Java methods to SQL statements.<br />
+Sample project showing the integration of the MyBatis (Java persistence framework) with Spring Boot using XML mapper file. Unlike ORM frameworks, MyBatis does not map Java objects to database tables but Java methods to SQL statements.<br />
 MyBatis lets you use all your database functionality like stored procedures, views, queries of any complexity and vendor proprietary features. It is often a good choice for legacy or de-normalized databases or to obtain full control of SQL execution.
 
 ## PRE-REQUISITES
